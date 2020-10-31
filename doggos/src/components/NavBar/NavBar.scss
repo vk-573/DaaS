@@ -1,0 +1,16 @@
+@import "../../style/variables.scss";
+
+.parent {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+  padding:0px;
+  li {
+    text-decoration: none;
+    margin: 6px;
+    font-weight: 700;
+    font-size: 24px;
+    cursor: pointer;
+  }
+}
