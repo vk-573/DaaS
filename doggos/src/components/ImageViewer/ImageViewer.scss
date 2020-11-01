@@ -8,23 +8,45 @@
     justify-content: center;
     align-items: center;
     height: 600px;
-    .image {
+    .image-p {
+      display:flex;
       margin: 42px 36px 0px 36px;
-      max-width:50%;
+      min-width:35%;
+      max-width:35%;
+      min-height: 600px;
       max-height: 600px;
+      @media (max-width: $medium) {
+        min-width:50%;
+        max-width:50%;
+      }
+      @media (max-width: $small) {
+        max-width:65%;
+      }
     }
-  }
-  .arrow {
-    color: $brown-light;
-    cursor: pointer;
-    font-size: 64px;
+    .image {
+      max-width: 100%;
+      max-height: 100%;
+      margin:auto;
+    }
+    .arrow-parent {
+      width: 64px;
+      padding-top: 26px;
+    }
+    .arrow {
+      color: $brown-light;
+      cursor: pointer;
+      font-size: 64px;
+    }
+    .inverse {
+      transform: rotate(0.5turn) !important;
+    }
+    .arrow-left {
+      width: 60px;
+    }
   }
   .arrow:hover {
     color: $brown-dark;
     transition-duration: 0.2s;
-  }
-  .inverse {
-    transform: rotate(0.5turn);
   }
   .hearth {
     color: $brown-light;

@@ -26,9 +26,19 @@ export default {
   methods: {
     prev() {
       console.log("clicked on prev");
+      if (this.index != 0) {
+        this.index--;
+      }
     },
     next() {
       console.log("clicked on next");
+      console.log("this.images.lenth:", this.images.length);
+      if (this.index + 1 < this.images.length) {
+        console.log("index is lower than l");
+        this.index++;
+      } else {
+        console.log("lol");
+      }
     },
   }
 }
@@ -38,11 +48,17 @@ export default {
   <div class="image-viewer">
     <div v-if="this.images[0]">
       <div class="image-content">
-        <i class="ph-paper-plane-right-fill arrow inverse"></i>
-          <img class="image" :src="this.images[0]"/>
-        <i class="ph-paper-plane-right-fill arrow"></i>
+        <div  v-if="!(this.index > 0)" class="arrow-left">
+        </div>
+        <i v-if="this.index > 0" @click="this.prev()" class="ph-paper-plane-right-fill arrow inverse"></i>
+        <div class="image-p">
+          <img class="image" :src="this.images[this.index]" :key="this.index"/>
+        </div>
+        <div class="arrow-parent">
+          <i v-if="!(this.index + 1 === this.images.length)" @click="this.next()" class="ph-paper-plane-right-fill arrow"></i>
+        </div>
       </div>
-      <div>{{index + 1}} / {{images.length}}</div>
+      <div>{{index + 1}} / {{this.images.length}}</div>
       <i class="ph-heart-fill hearth"></i>
     </div>
     <div v-if="!this.images[0]">

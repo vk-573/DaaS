@@ -31,10 +31,12 @@ export default {
     onBreedClick(key) {
       console.log("value:", key);
       this.selectedBreed = key;
+      this.$forceUpdate();
     },
     onSubClick(key) {
       console.log("value on sub:", key);
-      // this.selectedSub = key;
+      this.selectedSub = key;
+      this.$forceUpdate();
     }
   },
   components: {
@@ -73,7 +75,7 @@ export default {
           {{value}}
         </option>
       </select>
-      <ImageViewer v-if="selectedBreed" :breed="selectedBreed" :sub="selectedSub"/>
+      <ImageViewer :key="selectedBreed" v-if="selectedBreed" :breed="selectedBreed" :sub="selectedSub"/>
     </div>
   </div>
 </template>
