@@ -1,5 +1,6 @@
 <script>
 import DogService from '../../services/DogService';
+import ImageViewer from '../ImageViewer/ImageViewer.vue';
 import "./Discover.scss";
 
 export default {
@@ -19,6 +20,7 @@ export default {
     return {
       breed: {},
       selectedBreed: "",
+      labelBreed: "",
       selectedSub: "",
       selected: "",
       dropped: false,
@@ -26,12 +28,6 @@ export default {
     }
   },
   methods: {
-    prev() {
-      console.log("clicked on prev");
-    },
-    next() {
-      console.log("clicked on next");
-    },
     onBreedClick(key) {
       console.log("value:", key);
       this.selectedBreed = key;
@@ -40,6 +36,9 @@ export default {
       console.log("value on sub:", key);
       // this.selectedSub = key;
     }
+  },
+  components: {
+    ImageViewer
   }
 }
 </script>
@@ -51,7 +50,7 @@ export default {
     <div v-if="loading">LOADING...</div>
     <div v-if="!loading" class="filters">
       <select>
-        <option disabled value="">Select breed</option>
+        <option selected disabled hiddee value="">Select breed</option>
         <option
           v-for="(value, key) in this.breed"
           v-bind:key="key"
@@ -74,9 +73,7 @@ export default {
           {{value}}
         </option>
       </select>
-      <div>
-        
-      </div>
+      <ImageViewer v-if="selectedBreed" :breed="selectedBreed" :sub="selectedSub"/>
     </div>
   </div>
 </template>
