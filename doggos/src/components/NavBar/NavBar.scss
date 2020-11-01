@@ -1,16 +1,24 @@
 @import "../../style/variables.scss";
 
-.parent {
+.navbar {
   display:flex;
   align-items: center;
   justify-content: center;
   list-style-type: none;
-  padding:0px;
-  li {
+  padding: 12px 0px 0px 0px;
+  link, a {
     text-decoration: none;
-    margin: 6px;
+    margin: 0px 16px 0px 8px;
     font-weight: 700;
     font-size: 24px;
     cursor: pointer;
+    color: $brown-dark;
+    border-bottom: 4px solid $brown;
   }
+  .active {
+    // color: $black;
+    border-bottom: 4px solid $brown-light;
+    transition-duration: 0.8s;
+  }
+  flex: 1;
 }

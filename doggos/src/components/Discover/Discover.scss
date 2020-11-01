@@ -1,0 +1,14 @@
+@import "../../style/variables.scss";
+
+.discover {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  flex:15;
+  padding-bottom:200px;
+  .filter {
+    display:flex;
+  }
+}

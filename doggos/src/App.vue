@@ -1,9 +1,7 @@
 <template>
-  <div>
-    Doggos
-    <NavBar />
-    <router-view/>
-  </div>
+  <img id="logo" src="./assets/dog.png">
+  <NavBar />
+  <router-view/>
 </template>
 
 <script>
@@ -12,7 +10,7 @@ import NavBar from './components/NavBar/NavBar.vue';
 export default {
   name: 'App',
   components: {
-    NavBar,
+    NavBar
   }
 }
 </script>

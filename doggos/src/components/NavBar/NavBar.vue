@@ -12,15 +12,15 @@ export default {
 </script>
 
 <template>
-  <ul class="parent">
-    <li>
+  <ul class="navbar">
+    <router-link active-class="active" tag="li" class="link" to="/discover">
       Discover
-    </li>
-    <li>
+    </router-link>
+    <router-link active-class="active" tag="li" class="link" to="/favorite">
       Favorites
-    </li>
-    <li>
+    </router-link>
+    <router-link active-class="active" tag="li" class="link" to="/history">
       History
-    </li>
+    </router-link>
   </ul>
 </template>
