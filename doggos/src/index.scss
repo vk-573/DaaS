@@ -14,7 +14,13 @@
     padding-top: 18px;
     width:142px;
     display: flex;
-    align-self: center;;
+    align-self: center;
+    @media (max-width: $medium) {
+      width:100px;
+    }
+    @media (max-width: $small) {
+      width:80px;
+    }
   }
 }
 body {

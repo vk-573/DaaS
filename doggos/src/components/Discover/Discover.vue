@@ -29,8 +29,8 @@ export default {
   },
   methods: {
     onBreedClick(key) {
-      console.log("value:", key);
       this.selectedBreed = key;
+      this.selectedSub = '';
       this.$forceUpdate();
     },
     onSubClick(key) {
@@ -47,8 +47,7 @@ export default {
 
 <template>
   <div class="discover">
-    <div>Search for news breeds</div>
-    <div>eheh</div>
+    <p>Search for news breeds</p>
     <div v-if="loading">LOADING...</div>
     <div v-if="!loading" class="filters">
       <select>
@@ -62,8 +61,6 @@ export default {
           {{key}}
         </option>
       </select>
-      <!-- <span>Selected: {{ selected }}</span> -->
-      <!-- {{this.selectedBreed}} -->
       <select v-model="selectedSub">
         <option disabled value="">Sub Breed</option>
         <option
@@ -75,7 +72,8 @@ export default {
           {{value}}
         </option>
       </select>
-      <ImageViewer :key="selectedBreed" v-if="selectedBreed" :breed="selectedBreed" :sub="selectedSub"/>
+      <!-- Double key for rerender when breed and sub changes -->
+      <ImageViewer :key="`${selectedBreed}-${selectedSub}`" v-if="selectedBreed" :breed="selectedBreed" :sub="selectedSub"/>
     </div>
   </div>
 </template>

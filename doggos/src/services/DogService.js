@@ -10,13 +10,21 @@ class DogService  {
     }
   }
 
-  getBreedImages = async (breed) => {
+  getSubBreedImages = (sub, images) => {
+    images = images.filter((item) => item.includes(sub));
+    return images;
+  }
+
+  getBreedImages = async (breed, sub) => {
     try {
       const res = await axios.get(`https://dog.ceo/api/breed/${breed}/images`);
       console.log("res:", res);
+      if (sub) {
+        const subBreedImages = this.getSubBreedImages(sub, res.data.message);
+        return subBreedImages;
+      }
       return res.data.message;
     } catch (err) {
-      console.log("err:", err);
       return "error";
     }
   }

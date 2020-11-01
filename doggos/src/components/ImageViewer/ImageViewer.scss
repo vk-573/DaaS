@@ -7,26 +7,43 @@
     display:flex;
     justify-content: center;
     align-items: center;
-    height: 600px;
+    height: 500px;
+    @media (max-width: $medium) {
+      height: 400px;
+    }
+    // @media (max-width: $small) {
+    //   height: 300px;
+    // }
     .image-p {
       display:flex;
-      margin: 42px 36px 0px 36px;
+      margin: 20px 36px 0px 36px;
       min-width:35%;
       max-width:35%;
-      min-height: 600px;
-      max-height: 600px;
+      min-height: 500px;
+      max-height: 500px;
       @media (max-width: $medium) {
         min-width:50%;
         max-width:50%;
+        min-height: 400px;
+        max-height: 400px;
       }
       @media (max-width: $small) {
         max-width:65%;
+        min-height: 280px;
+        max-height: 280px;
       }
     }
     .image {
       max-width: 100%;
-      max-height: 100%;
+      max-height: 420px;
       margin:auto;
+      @media (max-width: $medium) {
+        max-height: 340px;
+      }
+      // @media (max-width: $small) {
+      //   max-height: 280px;
+      // }
+
     }
     .arrow-parent {
       width: 64px;
@@ -56,5 +73,8 @@
   .hearth:hover {
     color: $red;
     transition-duration: 0.4s;
+  }
+  p {
+    margin: 2px;
   }
 }

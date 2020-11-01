@@ -6,16 +6,13 @@ export default {
   name: 'ImageViewer',
   props: ['breed', 'sub'],
   async created() {
-    const images = await DogService.getBreedImages(this.breed);
+    const images = await DogService.getBreedImages(this.breed, this.sub);
+    this.images = [...images];
     if (images === "error") {
       // TODO snackBar
       console.log("error !");
       return;
     }
-    console.log("images:", images);
-    this.images = [...images];
-    console.log("this.images:", this.images);
-    console.log("this.images[0]:", this.images[0]);
   },
   data() {
     return {
@@ -25,19 +22,13 @@ export default {
   },
   methods: {
     prev() {
-      console.log("clicked on prev");
       if (this.index != 0) {
         this.index--;
       }
     },
     next() {
-      console.log("clicked on next");
-      console.log("this.images.lenth:", this.images.length);
       if (this.index + 1 < this.images.length) {
-        console.log("index is lower than l");
         this.index++;
-      } else {
-        console.log("lol");
       }
     },
   }
@@ -58,7 +49,7 @@ export default {
           <i v-if="!(this.index + 1 === this.images.length)" @click="this.next()" class="ph-paper-plane-right-fill arrow"></i>
         </div>
       </div>
-      <div>{{index + 1}} / {{this.images.length}}</div>
+      <p>{{index + 1}} / {{this.images.length}}</p>
       <i class="ph-heart-fill hearth"></i>
     </div>
     <div v-if="!this.images[0]">

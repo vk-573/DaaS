@@ -7,8 +7,18 @@
   align-content: center;
   justify-content: center;
   flex:15;
-  padding-bottom:200px;
+  padding-bottom:55px;
+  @media (max-width: $medium) {
+    padding-bottom:40px;
+  }
+  @media (max-width: $small) {
+    padding-bottom:20px;
+  }
   .filter {
     display:flex;
+  }
+  p {
+    font-size:18px;
+    font-weight: 600;
   }
 }

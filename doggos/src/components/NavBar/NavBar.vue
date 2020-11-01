@@ -13,7 +13,7 @@ export default {
 
 <template>
   <ul class="navbar">
-    <router-link active-class="active" tag="li" class="link" to="/discover">
+    <router-link active-class="active" tag="li" class="link" to="/">
       Discover
     </router-link>
     <router-link active-class="active" tag="li" class="link" to="/favorite">
