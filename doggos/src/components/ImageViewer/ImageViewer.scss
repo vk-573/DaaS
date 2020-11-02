@@ -70,6 +70,9 @@
     cursor: pointer;
     font-size: 64px;
   }
+  .active-favorite {
+    color: $red;
+  }
   .hearth:hover {
     color: $red;
     transition-duration: 0.4s;

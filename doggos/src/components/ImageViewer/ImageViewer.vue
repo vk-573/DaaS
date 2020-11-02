@@ -1,10 +1,17 @@
 <script>
 import DogService from '../../services/DogService';
+import useUserPictures from "../../sessions/UserPictures";
 import "./ImageViewer.scss";
 
 export default {
   name: 'ImageViewer',
   props: ['breed', 'sub'],
+  setup() {
+    console.log("in setup");
+    const { favorites, toggleFavorite } = useUserPictures();
+
+    return { favorites, toggleFavorite }
+  },
   async created() {
     const images = await DogService.getBreedImages(this.breed, this.sub);
     this.images = [...images];
@@ -50,7 +57,7 @@ export default {
         </div>
       </div>
       <p>{{index + 1}} / {{this.images.length}}</p>
-      <i class="ph-heart-fill hearth"></i>
+      <i @click="toggleFavorite(this.images[this.index])" class="ph-heart-fill hearth" :class="[favorites.includes(this.images[this.index]) ? 'active-favorite' : '', 'ph-heart-fill', 'hearth']" ></i>
     </div>
     <div v-if="!this.images[0]">
       There is no images for this breed or sub breed

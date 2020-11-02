@@ -1,14 +1,32 @@
 <script>
+import "./Favorite.scss";
+import UserService from '../../services/UserService';
+import useUserPictures from "../../sessions/UserPictures";
+
 export default {
-  name: 'Favorite',
-  data() {
+  setup() {
+    const { favorites, toggleFavorite } = useUserPictures();
+    console.log("favorites:", favorites.value);
+
     return {
-      count: 0
-    }
-  }
-}
+      favorites,
+      toggleFavorite
+    };
+  },
+};
 </script>
 
 <template>
-  <div>Favorite</div>
+  <div class="favorite">
+    <p>Your bookmarked {{favorites.length}} pictures</p>
+    <div class="image-container">
+      <img
+        v-for="(value) in favorites"
+        v-bind:key="value"
+        v-bind:value="value"
+        @click="toggleFavorite(value)"
+        :src="value"
+      >
+    </div>
+  </div>
 </template>
