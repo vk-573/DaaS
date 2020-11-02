@@ -1,6 +1,13 @@
 # DaaS
 A Vue application abouts dogs
 
+## How to run 
+```bash
+cd doggos
+npm install
+npm run dev
+```
+
 ## Main 3 features:
 
 ### Discover
