@@ -1,0 +1,35 @@
+@import "../../style/variables.scss";
+
+.history {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  flex:15;
+  .image-container {
+    max-width: 40%;
+    display:flex;
+    flex-direction: column;
+    margin:auto;
+    justify-content: center;
+    @media (max-width: $medium) {
+      max-width: 65%;
+    }
+    @media (max-width: $small) {
+      max-width: 70%;
+    }
+    img {
+      display: flex;
+      align-self: center;
+      margin:12px;
+      max-width: 40%;
+      @media (max-width: $medium) {
+        max-width: 65%;
+      }
+      @media (max-width: $small) {
+        max-width: 70%;
+      }
+    }
+  }
+}

@@ -8,13 +8,16 @@ export default {
   props: ['breed', 'sub'],
   setup() {
     console.log("in setup");
-    const { favorites, toggleFavorite } = useUserPictures();
+    const { favorites, toggleFavorite, addHistory } = useUserPictures();
 
-    return { favorites, toggleFavorite }
+    return { favorites, toggleFavorite, addHistory }
   },
   async created() {
     const images = await DogService.getBreedImages(this.breed, this.sub);
     this.images = [...images];
+    if (images.length) {
+      this.addHistory(images[this.index]);
+    }
     if (images === "error") {
       // TODO snackBar
       console.log("error !");
@@ -32,11 +35,13 @@ export default {
       if (this.index != 0) {
         this.index--;
       }
+      this.addHistory(this.images[this.index]);
     },
     next() {
       if (this.index + 1 < this.images.length) {
         this.index++;
       }
+      this.addHistory(this.images[this.index]);
     },
   }
 }
@@ -50,7 +55,7 @@ export default {
         </div>
         <i v-if="this.index > 0" @click="this.prev()" class="ph-paper-plane-right-fill arrow inverse"></i>
         <div class="image-p">
-          <img class="image" :src="this.images[this.index]" :key="this.index"/>
+          <img class="image" :src="this.images[this.index]" :key="this.index" />
         </div>
         <div class="arrow-parent">
           <i v-if="!(this.index + 1 === this.images.length)" @click="this.next()" class="ph-paper-plane-right-fill arrow"></i>

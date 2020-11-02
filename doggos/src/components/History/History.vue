@@ -1,14 +1,29 @@
 <script>
+import "./History.scss";
+import UserService from '../../services/UserService';
+import useUserPictures from "../../sessions/UserPictures";
+
 export default {
-  name: 'History',
-  data() {
+  setup() {
+    const { history } = useUserPictures();
+    console.log("history:", history.value);
     return {
-      count: 0
-    }
-  }
-}
+      history,
+    };
+  },
+};
 </script>
 
 <template>
-  <div>History</div>
+  <div class="history">
+    <p>You have seen {{history.length}} pictures during this session </p>
+    <div class="image-container">
+      <img
+        v-for="(value) in history"
+        v-bind:key="value"
+        v-bind:value="value"
+        :src="value"
+      >
+    </div>
+  </div>
 </template>
