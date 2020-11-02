@@ -1,6 +1,5 @@
 <script>
 import "./Favorite.scss";
-import UserService from '../../services/UserService';
 import useUserPictures from "../../sessions/UserPictures";
 
 export default {

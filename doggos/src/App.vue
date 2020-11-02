@@ -12,9 +12,6 @@ export default {
   name: 'App',
   components: {
     NavBar
-  },
-  onUnmounted() {
-    console.log("UNMOUNT");
   }
 }
 </script>
