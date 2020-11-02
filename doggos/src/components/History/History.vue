@@ -5,7 +5,6 @@ import useUserPictures from "../../sessions/UserPictures";
 export default {
   setup() {
     const { history } = useUserPictures();
-    console.log("history:", history.value);
     return {
       history,
     };

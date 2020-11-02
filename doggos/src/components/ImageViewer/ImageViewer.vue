@@ -7,7 +7,6 @@ export default {
   name: 'ImageViewer',
   props: ['breed', 'sub'],
   setup() {
-    console.log("in setup");
     const { favorites, toggleFavorite, addHistory } = useUserPictures();
 
     return { favorites, toggleFavorite, addHistory }
@@ -20,7 +19,6 @@ export default {
     }
     if (images === "error") {
       // TODO snackBar
-      console.log("error !");
       return;
     }
   },

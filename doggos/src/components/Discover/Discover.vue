@@ -6,15 +6,11 @@ import "./Discover.scss";
 export default {
   name: 'Discover',
   async created() {
-    console.log("here");
     const breed = await DogService.listBreed();
     if (breed === "error") {
-      console.log("error !");
     }
-    console.log("brred:", breed);
     this.breed = breed;
     this.loading = false;
-    console.log("loading:", this.loading);
   },
   data() {
     return {
@@ -34,7 +30,6 @@ export default {
       this.$forceUpdate();
     },
     onSubClick(key) {
-      console.log("value on sub:", key);
       this.selectedSub = key;
       this.$forceUpdate();
     }

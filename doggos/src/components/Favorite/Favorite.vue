@@ -5,7 +5,6 @@ import useUserPictures from "../../sessions/UserPictures";
 export default {
   setup() {
     const { favorites, toggleFavorite } = useUserPictures();
-    console.log("favorites:", favorites.value);
 
     return {
       favorites,

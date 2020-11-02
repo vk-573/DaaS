@@ -18,7 +18,6 @@ class DogService  {
   getBreedImages = async (breed, sub) => {
     try {
       const res = await axios.get(`https://dog.ceo/api/breed/${breed}/images`);
-      console.log("res:", res);
       if (sub) {
         const subBreedImages = this.getSubBreedImages(sub, res.data.message);
         return subBreedImages;
