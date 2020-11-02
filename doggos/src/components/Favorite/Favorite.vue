@@ -16,7 +16,7 @@ export default {
 
 <template>
   <div class="favorite">
-    <p>Your bookmarked {{favorites.length}} pictures</p>
+    <p>You bookmarked {{favorites.length}} pictures</p>
     <div class="image-container">
       <img
         v-for="(value) in favorites"
