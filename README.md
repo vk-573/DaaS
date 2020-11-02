@@ -26,3 +26,9 @@ src/components => globals components
 src/services => business logic / network related functions
 
 src/sessions => global states
+
+## More features
+Some ideas that can be implemented
+* Save your liked pictures and history to the localStorage when the application closes, retrieve them back in the state on the applicatio opening.
+* Add breed names on your liked pictures / history
+* Make sidebar menu for breed list instead of a select
