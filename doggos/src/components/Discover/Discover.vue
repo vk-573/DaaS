@@ -23,17 +23,6 @@ export default {
       loading: true
     }
   },
-  methods: {
-    onBreedClick(key) {
-      this.selectedBreed = key;
-      this.selectedSub = '';
-      this.$forceUpdate();
-    },
-    onSubClick(key) {
-      this.selectedSub = key;
-      this.$forceUpdate();
-    }
-  },
   components: {
     ImageViewer
   }
@@ -45,13 +34,12 @@ export default {
     <p>Search for news breeds</p>
     <div v-if="loading">LOADING...</div>
     <div v-if="!loading" class="filters">
-      <select>
+      <select v-model="selectedBreed">
         <option selected disabled hiddee value="">Select breed</option>
         <option
           v-for="(value, key) in this.breed"
           v-bind:key="key"
-          v-bind:value="value"
-          @click="onBreedClick(key)"
+          v-bind:value="key"
         >
           {{key}}
         </option>
@@ -62,7 +50,6 @@ export default {
           v-for="(value, key) in this.breed[selectedBreed]"
           v-bind:key="key"
           v-bind:value="value"
-          @click="onSubClick(value)"
         >
           {{value}}
         </option>
